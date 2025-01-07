@@ -7,3 +7,15 @@ body{
     padding-left: 50px;
     padding-right: 50px;
 }
+@media(max-width:596px){
+    body{
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+}
+@media(min-width:596px) and (max-width:992px){
+    body{
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+}
