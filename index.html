@@ -44,7 +44,7 @@
         </div>
         <div class="navbar-end flex items-center gap-5 sm:flex flex-row">
           <img src="./assets/coin.png" alt="" class="h-8">
-          <span class="text-md font-semibold text-gray-700">5500 BDT</span>
+          <span id="acc-balance" class="text-md font-semibold text-gray-700">5500 BDT</span>
         </div>
       </div>
      </nav>
@@ -73,7 +73,7 @@
           <div class="md:w-2/3">
             <div class="border rounded-[8px] bg-gray-300 mr-[350px]  px-4 py-1 flex items-center gap-3">
               <img src="./assets/coin.png" alt="" class="h-8">
-              <span class="text-md font-semibold text-black">0 BDT</span>
+              <span id="donation" class="text-md font-semibold text-black">0 BDT</span>
             </div>
             <h2 class="text-2xl font-bold mb-2">Donate for Flood at Noakhali, Bangladesh</h2>
             <p class="text-gray-600 mb-4">
@@ -85,13 +85,26 @@
               <input 
                 type="text" 
                 placeholder="Write a donation" 
-                class="input input-bordered w-full"
+                class="input input-bordered w-full donation-input"
               >
-              <button class="btn bg-buttongreen text-black border-none">Donate Now</button>
+              <button class="btn bg-buttongreen text-black border-none donation-btn">Donate Now</button>
             </div>
           </div>
         </div>
       <!-- First From End -->
+
+<!-- MODAL -->
+<div id="donmodal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+  <div class="bg-white rounded-lg p-6 max-w-sm w-full text-center">
+    <h2 class="text-2xl font-[1200px] text-black mb-4">Congrates!</h2>
+    <span class="flex flex-col items-center"><img src="..//assets/coin.png" alt="" srcset=""></span>
+    <p class="text-gray-600 mb-4">You have donated for humankind</p>
+    <button id="closemodal" class="btn text-black border-none">
+      Close
+    </button>
+  </div>
+</div>
+<!-- MODAL END -->
 
        <!-- Second Form -->
         <!-- Donation Section -->
@@ -106,7 +119,7 @@
           <div class="md:w-2/3">
             <div class="border rounded-[8px] bg-gray-300 mr-[350px]  px-4 py-1 flex items-center gap-3">
               <img src="./assets/coin.png" alt="" class="h-8">
-              <span class="text-md font-semibold text-black">0 BDT</span>
+              <span id="donation" class="text-md font-semibold text-black">0 BDT</span>
             </div>
             <h2 class="text-2xl font-bold mb-2">Donate for Flood at Noakhali, Bangladesh</h2>
             <p class="text-gray-600 mb-4">
@@ -139,11 +152,11 @@
           <div class="md:w-2/3">
             <div class="border rounded-[8px] bg-gray-300 mr-[350px]  px-4 py-1 flex items-center gap-3">
               <img src="./assets/coin.png" alt="" class="h-8">
-              <span class="text-md font-semibold text-black">0 BDT</span>
+              <span id="donation" class="text-md font-semibold text-black">0 BDT</span>
             </div>
-            <h2 class="text-2xl font-bold mb-2">Donate for Flood at Noakhali, Bangladesh</h2>
+            <h2 class="text-2xl font-bold mb-2">Aid for Injured in the Quota Movement</h2>
             <p class="text-gray-600 mb-4">
-            The recent floods in Noakhali have caused significant damage to homes  infrastructure. Your donation will help provide essential supplies and  to those affected by this disaster. Every contribution, big or small, makes  difference. Please join us in supporting the relief efforts and making a positive impact on the lives of those in need.           
+              The recent Quota movement has resulted in numerous injuries and significant hardship for many individuals. Your support is crucial in providing medical assistance, rehabilitation, and necessary supplies to those affected. By contributing, you help ensure that injured individuals receive the care and support they need during this challenging time. Every donation plays a vital role in alleviating their suffering and aiding in their recovery. Please consider making a donation to support these brave individuals in their time of need.        
            </p>
       
             <!-- Donation Field and Button -->
