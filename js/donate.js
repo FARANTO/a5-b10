@@ -1,51 +1,60 @@
-const accountBalanceElement = document.getElementById('acc-balance');
-    const donationAmountElement = document.getElementById('donation');
-    const donationInputs = document.querySelectorAll('.donation-input');
-    const donationButtons = document.querySelectorAll('.donation-btn');
-    const modal = document.getElementById('donmodal');
-    const closeModalButton = document.getElementById('closemodal');
+document.addEventListener("DOMContentLoaded", function () {
+    const accountBalanceElement = document.getElementById("acc-balance");
+    const donationForms = document.querySelectorAll(".donation-form");
+    const modal = document.getElementById("donation-modal");
+    const modalAmount = document.getElementById("modal-amount");
 
-    // String to Integer function
-    const getBalance = () => parseInt(accountBalanceElement.textContent.split(' ')[0], 10);
+    // Helper function to extract numerical values from "5500 BDT"
+    const parseAmount = (amountText) => parseInt(amountText.replace(/\D/g, ""), 10);
 
-    // Main Function Start
-    const updateBalances = (donationInput) => {
-      const donationValue = parseInt(donationInput.value, 10);
-      if (!isNaN(donationValue) && donationValue > 0) {
-        let currentBalance = getBalance();
-
-        // Check if there are sufficient funds
-        if (donationValue <= currentBalance) {
-          // Update account balance
-          currentBalance -= donationValue;
-          accountBalanceElement.textContent = `${currentBalance} BDT`;
-
-          // Update donated amount
-          const currentDonation = parseInt(donationAmountElement.textContent.split(' ')[0], 10);
-          donationAmountElement.textContent = `${currentDonation + donationValue} BDT`;
-
-          // Clear the input field
-          donationInput.value = '';
-          // Show the modal
-          modal.classList.remove('hidden');
-        } 
-        else {
-          alert('Insufficient balance to make this donation.');
-        }
-      } else {
-        alert('Please enter a valid donation amount.');
+    // Update the balance after a donation
+    const updateBalance = (donationAmount) => {
+      let currentBalance = parseAmount(accountBalanceElement.textContent);
+      if (donationAmount > currentBalance) {
+        alert("Insufficient balance to make this donation.");
+        return false;
       }
+      currentBalance -= donationAmount;
+      accountBalanceElement.textContent = `${currentBalance} BDT`;
+      return true;
     };
-// Main Function End
 
+    // Show modal
+    const showModal = (amount) => {
+      modalAmount.textContent = `${amount} BDT`;
+      modal.classList.remove("hidden");
+    };
 
-    // Add event listeners to buttons
-    donationButtons.forEach((button, index) => {
-      button.addEventListener('click', () => {
-        updateBalances(donationInputs[index]);
+    // Close modal
+    const closeModal = () => {
+      modal.classList.add("hidden");
+    };
+
+    // Loop through each form and add event listeners
+    donationForms.forEach((form) => {
+      const donationInput = form.querySelector(".donation-input");
+      const donationButton = form.querySelector(".donation-btn");
+      const donationAmountElement = form.querySelector(".donation-amount");
+
+      donationButton.addEventListener("click", () => {
+        let donationValue = parseInt(donationInput.value, 10);
+
+        if (isNaN(donationValue) || donationValue <= 0) {
+          alert("Please enter a valid donation amount.");
+          return;
+        }
+
+        if (updateBalance(donationValue)) {
+          let currentDonation = parseAmount(donationAmountElement.textContent);
+          donationAmountElement.textContent = `${currentDonation + donationValue} BDT`;
+          donationInput.value = "";
+
+          // Show success modal
+          showModal(donationValue);
+        }
       });
     });
-    // Close modal 
-    closeModalButton.addEventListener('click', () => {
-      modal.classList.add('hidden');
-    });
+
+    // Expose function to window for button click
+    window.closeModal = closeModal;
+  });
