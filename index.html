@@ -93,18 +93,6 @@
         </div>
       <!-- First From End -->
 
-<!-- MODAL -->
-<div id="donmodal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-  <div class="bg-white rounded-lg p-6 max-w-sm w-full text-center">
-    <h2 class="text-2xl font-[1200px] text-black mb-4">Congrates!</h2>
-    <span class="flex flex-col items-center"><img src="..//assets/coin.png" alt="" srcset=""></span>
-    <p class="text-gray-600 mb-4">You have donated for humankind</p>
-    <button id="closemodal" class="btn text-black border-none">
-      Close
-    </button>
-  </div>
-</div>
-<!-- MODAL END -->
 
        <!-- Second Form -->
         <!-- Donation Section -->
@@ -174,10 +162,12 @@
 
       <!-- Donation Success Modal -->
   <div id="donation-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center">
-    <div class="bg-white p-6 rounded-lg shadow-lg w-96 text-center">
-      <h2 class="text-2xl font-bold text-green-600 mb-2">Donation Successful!</h2>
-      <p class="text-gray-700">You have donated <span id="modal-amount" class="font-bold"></span></p>
-      <button onclick="closeModal()" class="btn bg-blue-500 text-white px-4 py-2 mt-4 rounded">OK</button>
+    <div class="bg-white p-6 rounded-lg shadow-lg w-96 text-center flex flex-col items-center">
+      <h2 class="text-2xl font-bold text-black mb-2">Congrats!</h2>
+      <img src="./assets/coin.png" alt="" class="h-8">
+      <p class="text-gray-700">You have donated <span id="modal-amount" class="font-bold"></span> for humankind</p>
+      <h1 class="text-2xl font-bold text-black mb-2">Succesfully</h1>
+      <button onclick="closeModal()" class="btn text-black px-4 py-2 mt-4 rounded">Close Confirmation</button>
     </div>
   </div>
       </section>
