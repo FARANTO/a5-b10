@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const modal = document.getElementById("donation-modal");
     const modalAmount = document.getElementById("modal-amount");
 
-    // Helper function to extract numerical values from "5500 BDT"
+    //  function to make texts into number
     const parseAmount = (amountText) => parseInt(amountText.replace(/\D/g, ""), 10);
 
     // Update the balance after a donation

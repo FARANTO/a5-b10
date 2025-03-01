@@ -56,10 +56,10 @@
 
         <!-- Change Buttons -->
         <div class="flex justify-center gap-4 mb-8">
-          <button class="btn bg-buttongreen text-black border-none">Donation</button>
-          <button class="btn bg-white text-black border-none">History</button>
+          <button id="donation-btn" class="btn bg-buttongreen text-black border-none">Donation</button>
+          <button id="history-btn" class="btn bg-white text-black border-none">History</button>
         </div>
-      
+    <div id="donation-section"> 
       <!-- First Form -->
         <!-- Donation Section -->
         <div class="border rounded-lg p-5 flex flex-col md:flex-row items-start gap-6 donation-form">
@@ -159,6 +159,7 @@
           </div>
         </div>
       <!-- Third From End -->
+  </div>
 
       <!-- Donation Success Modal -->
   <div id="donation-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center">
@@ -172,10 +173,24 @@
   </div>
       </section>
       
+      <!-- History Section (Initially Hidden) -->
+<div id="history-section" class="hidden">
+  <h2 class="text-2xl font-bold">Donation History</h2>
+  <table class="w-full border-collapse border border-gray-300 mt-4">
+    <thead>
+      <tr class="bg-gray-200">
+        <th class="border border-gray-300 px-4 py-2">Amount Donated</th>
+        <th class="border border-gray-300 px-4 py-2">Date & Time (Bangladesh)</th>
+      </tr>
+    </thead>
+    <tbody id="history-table"></tbody>
+  </table>
+</div>
+
     </main>
     <footer>
-
     </footer>
-    <script src="./js/donate.js"></script>   
+    <script src="./js/donate.js"></script>  
+    <script src="./js/history.js"></script>  
 </body>
 </html>
