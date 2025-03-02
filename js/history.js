@@ -2,24 +2,42 @@ document.addEventListener("DOMContentLoaded", function () {
     const historySection = document.getElementById("history-section");
     const historyBtn = document.getElementById("history-btn");
     const donationBtn = document.getElementById("donation-btn");
-    const historyTable = document.getElementById("history-table");
     const donationSection = document.getElementById("donation-section");
+    const historyList = document.getElementById("history-list");
 
-    // Load donation history from localStorage
+    // Load donation history from localStorage (Newest First)
     const loadHistory = () => {
-        historyTable.innerHTML = ""; // Clear previous entries
+        historyList.innerHTML = ""; // Clear previous entries
 
         let history = JSON.parse(localStorage.getItem("donationHistory")) || [];
 
         if (history.length === 0) {
-            historyTable.innerHTML = "<tr><td colspan='2' class='text-center py-2'>No donation history available.</td></tr>";
+            historyList.innerHTML = `<p class="text-center text-black">No donation history available.</p>`;
             return;
         }
 
+        // Sort history to show the most recent donations first
+        history.reverse(); 
+
         history.forEach(entry => {
-            let row = document.createElement("tr");
-            row.innerHTML = `<td class="border px-4 py-2">${entry.amount}</td><td class="border px-4 py-2">${entry.time}</td>`;
-            historyTable.appendChild(row);
+            let historyItem = document.createElement("div");
+            historyItem.classList.add(
+                "border-t-[32px]", 
+                "border-b-[32px]", 
+                "border-white",
+                "ml-[200px]", 
+                "p-4", 
+                "rounded-lg", 
+                "text-start", 
+                "mb-4"
+            );
+
+            historyItem.innerHTML = `
+                <p class="text-lg font-bold text-black">${entry.amount} Taka is Donated for ${entry.cause} at ${entry.location}</p>
+                <p class="text-sm text-black mt-2">Date: ${entry.time}</p>
+            `;
+
+            historyList.appendChild(historyItem);
         });
     };
 
