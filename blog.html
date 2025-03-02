@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <<title>Donate BD</title>
     <link rel="shortcut icon" href="./assets/logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/styleTwo.css">
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.14/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -31,11 +31,17 @@
 <body class="bg-gray-100 text-black">
 <!-- Section One -->
  <section>
-    <div class="carousel w-full">
-        <div id="slide1" class="carousel-item relative w-full">
+  <div class="navbar bg-bgcolor flex justify-center md:flex-row items-center md:justify-between sm:flex-col sm:px-[150px]">
+    <h1 class="text-4xl font-bold text-center mb-6">Devastation of the Flood</h1>
+    <div class="text-center mt-6">
+      <a href="index.html" class="btn bg-buttongreen text-black px-10 py-10 rounded">Home</a>
+  </div>
+  </div>
+     <div class="carousel"> 
+        <div id="slide1" class="carousel-item relative">
           <img
-            src="https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.webp"
-            class="w-full" />
+            src="./assets/FloodOne.jpg"
+            class="w-screen h-[70%]" />
           <div class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
             <a href="#slide4" class="btn btn-circle">❮</a>
             <a href="#slide2" class="btn btn-circle">❯</a>
@@ -43,8 +49,8 @@
         </div>
         <div id="slide2" class="carousel-item relative w-full">
           <img
-            src="https://img.daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.webp"
-            class="w-full" />
+            src="./assets/FloodTwo.jpg"
+            class="w-screen h-[70%]" />
           <div class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
             <a href="#slide1" class="btn btn-circle">❮</a>
             <a href="#slide3" class="btn btn-circle">❯</a>
@@ -52,43 +58,31 @@
         </div>
         <div id="slide3" class="carousel-item relative w-full">
           <img
-            src="https://img.daisyui.com/images/stock/photo-1414694762283-acccc27bca85.webp"
-            class="w-full" />
+            src="./assets/FloodThree.jpg"
+            class="w-screen h-[70%]" />
           <div class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
             <a href="#slide2" class="btn btn-circle">❮</a>
             <a href="#slide4" class="btn btn-circle">❯</a>
           </div>
         </div>
-        <div id="slide4" class="carousel-item relative w-full">
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.webp"
-            class="w-full" />
-          <div class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-            <a href="#slide3" class="btn btn-circle">❮</a>
-            <a href="#slide1" class="btn btn-circle">❯</a>
-          </div>
-        </div>
       </div>
     <div class="container mx-auto p-6">
-        <h1 class="text-4xl font-bold text-center mb-6">Devastation of the Flood</h1>
+        <h1 class="text-4xl font-bold text-center mb-6">My time with the flood effected people.</h1>
         
-        <div class="flex flex-col gap-8">
+        <div class="flex flex-col">
             <div class="bg-white p-6 rounded-lg shadow-md">
-                <img src="./assets/flood1.jpg" alt="Flood Damage" class="rounded-lg w-full mb-4">
                 <p class="text-gray-700">
                     The recent floods in Bangladesh have left thousands homeless, washing away entire villages. Roads are submerged, and access to food and clean water has become a serious challenge.
                 </p>
             </div>
 
             <div class="bg-white p-6 rounded-lg shadow-md">
-                <img src="./assets/flood2.jpg" alt="People affected by flood" class="rounded-lg w-full mb-4">
                 <p class="text-gray-700">
                     Families are struggling as floodwaters continue to rise. Relief efforts are ongoing, but more support is needed to rebuild lives and provide shelter to the affected people.
                 </p>
             </div>
 
             <div class="bg-white p-6 rounded-lg shadow-md">
-                <img src="./assets/flood3.jpg" alt="Relief efforts" class="rounded-lg w-full mb-4">
                 <p class="text-gray-700">
                     Relief organizations are working tirelessly to provide emergency aid. Your donations can help bring food, medicine, and shelter to those in desperate need.
                 </p>
