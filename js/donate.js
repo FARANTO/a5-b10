@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const modalAmount = document.getElementById("modal-amount");
 
     //  function to make texts into number
-    const parseAmount = (amountText) => parseInt(amountText.replace(/\D/g, ""), 10);
+    const parseAmount = (amountText) => parseInt(amountText.replace(/\D/g, ""), );
 
     // Update the balance after a donation
     const updateBalance = (donationAmount) => {
@@ -45,13 +45,23 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         if (updateBalance(donationValue)) {
-          let currentDonation = parseAmount(donationAmountElement.textContent);
-          donationAmountElement.textContent = `${currentDonation + donationValue} BDT`;
-          donationInput.value = "";
+  let currentDonation = parseAmount(donationAmountElement.textContent);
+  donationAmountElement.textContent = `${currentDonation + donationValue} BDT`;
+  donationInput.value = "";
 
-          // Show success modal
-          showModal(donationValue);
-        }
+  // ✅ Save donation history to localStorage
+  let history = JSON.parse(localStorage.getItem("donationHistory")) || [];
+  let donationEntry = {
+    amount: donationValue,
+    cause: form.querySelector("h2").textContent, // e.g., "Donate for Flood at Noakhali"
+    time: new Date().toString() // Save Bangladesh time string
+  };
+  history.unshift(donationEntry); // put latest donation on TOP
+  localStorage.setItem("donationHistory", JSON.stringify(history));
+
+  // Show success modal
+  showModal(donationValue);
+}
       });
     });
 
